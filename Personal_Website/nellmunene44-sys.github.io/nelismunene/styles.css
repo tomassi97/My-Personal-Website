@@ -1,0 +1,1282 @@
+﻿/* ============================================================
+   GLOBAL RESET & BASE STYLES
+   Ensures consistency across browsers
+============================================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #2c2c2c;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   GLOBAL VARIABLES (COLOR SYSTEM)
+   Academic & Professional Palette
+============================================================ */
+:root {
+    --primary-color: #0b2545;      /* Navy Blue */
+    --secondary-color: #3a5a40;    /* Deep Green */
+    --accent-color: #6c757d;       /* Charcoal */
+    --light-gray: #f7f7f7;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+    --bg-card: #ffffff;
+    --bg-muted: #f7f9fc;
+    --primary: #0b2545;
+    --primary-dark: #061a30;
+    --shadow-soft: 0 14px 40px rgba(11, 37, 69, 0.08);
+    --text-main: #1f2933;
+    --text-muted: #5b6572;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+============================================================ */
+h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ============================================================
+   REUSABLE LAYOUT UTILITIES
+============================================================ */
+.container {
+    width: 90%;        /* or max-width: 1200px */
+    margin: 0 auto;    /* centers the container */
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #555;
+}
+
+/* ============================================================
+   BUTTON STYLES
+============================================================ */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #061a30;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* ============================================================
+   HEADER & NAVIGATION
+============================================================ */
+.main-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo a {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo span {
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.main-nav a.btn-primary {
+    color: #ffffff; /* ensures white text on nav button */
+}
+
+.main-nav a.btn-primary.active,
+.main-nav a.btn-primary:hover {
+    color: #ffffff;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+}
+
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero-section {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-content p {
+    margin: 1.5rem 0;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   ABOUT FAQ / ACCORDION
+============================================================ */
+.about-faq {
+    padding: 4rem 0;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.accordion-content {
+    padding: 0 1rem 1rem;
+    display: none;
+    color: #555;
+}
+
+/* ============================================================
+   HIGHLIGHTS / DIFFERENTIATORS
+============================================================ */
+.highlights {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.highlight-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+    color: #333;
+}
+
+/* ============================================================
+   SERVICES & SAMPLES PREVIEW
+============================================================ */
+.services-preview,
+.samples-preview {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+/* ============================================================
+   HOME CONTACT FORM
+============================================================ */
+.home-contact {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+.testimonials {
+    padding: 4rem 0;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.testimonial-card span {
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.main-footer p {
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .main-nav ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .logo a {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav ul {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.75rem;
+    }
+
+    .main-nav li:last-child {
+        width: 100%;
+    }
+
+    .main-nav li:last-child .btn {
+        display: inline-block;
+    }
+
+    .about-hero,
+    .services-hero,
+    .contact-intro,
+    .blog-hero,
+    .samples-hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .about-hero h1,
+    .services-hero h1,
+    .contact-intro h1,
+    .blog-hero h1,
+    .samples-hero h1 {
+        font-size: 2rem;
+    }
+
+    .blog-card,
+    .sidebar-card,
+    .about-text,
+    .about-values,
+    .service-card,
+    .sample-card,
+    .whatsapp-box {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 94%;
+        padding: 0 0.75rem;
+    }
+
+    .main-nav a {
+        font-size: 0.88rem;
+    }
+
+    .section-title,
+    .about-hero h1,
+    .services-hero h1,
+    .contact-intro h1,
+    .blog-hero h1,
+    .samples-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .blog-card,
+    .sidebar-card,
+    .about-text,
+    .about-values,
+    .service-card,
+    .sample-card,
+    .whatsapp-box {
+        padding: 1rem;
+    }
+}
+
+/* ============================================================
+   BLOG PAGE STYLES
+   Applies ONLY to blog.html
+============================================================ */
+
+/* ============================================================
+   BLOG HERO / INTRO SECTION
+============================================================ */
+.blog-hero {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.blog-hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+}
+
+.blog-hero .section-intro {
+    max-width: 750px;
+}
+
+/* ============================================================
+   BLOG LAYOUT GRID
+============================================================ */
+.blog-content {
+    padding: 4rem 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 3rem;
+}
+
+/* ============================================================
+   BLOG POST CARDS
+============================================================ */
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.blog-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 2rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.blog-card:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+}
+
+.blog-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.blog-meta {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.blog-card p {
+    margin-bottom: 1.2rem;
+    color: #555;
+}
+
+/* ============================================================
+   READ MORE LINK
+============================================================ */
+.read-more {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   BLOG SIDEBAR
+============================================================ */
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+.sidebar-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.sidebar-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ============================================================
+   BLOG CATEGORY LIST
+============================================================ */
+.category-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.category-list li {
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    color: #444;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   SIDEBAR CALL-TO-ACTION
+============================================================ */
+.sidebar-cta {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.sidebar-cta h3,
+.sidebar-cta p {
+    color: var(--white);
+}
+
+.sidebar-cta .btn {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE BLOG DESIGN
+============================================================ */
+@media (max-width: 1000px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .blog-card {
+        padding: 1.5rem;
+    }
+
+    .blog-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================================
+   CONTACT PAGE STYLES
+   Applies to contactme.html only
+============================================================ */
+
+/* ============================================================
+   CONTACT INTRO SECTION
+============================================================ */
+.contact-intro {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.contact-intro h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+}
+
+/* ============================================================
+   WHATSAPP CONTACT SECTION
+============================================================ */
+.whatsapp-contact {
+    padding: 4rem 0;
+}
+
+.whatsapp-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.whatsapp-text h2 {
+    margin-bottom: 1rem;
+}
+
+.whatsapp-text p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.whatsapp-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.whatsapp-text li {
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+
+/* ============================================================
+   WHATSAPP ACTION BOX
+============================================================ */
+.whatsapp-box {
+    background-color: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.whatsapp-box label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.whatsapp-box input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.whatsapp-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.whatsapp-note {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-align: center;
+}
+
+/* ============================================================
+   FINAL CONTACT FORM SECTION
+============================================================ */
+.contact-form-section {
+    background-color: var(--white);
+    padding: 4rem 0;
+}
+
+/* ============================================================
+   RESPONSIVE CONTACT PAGE
+============================================================ */
+@media (max-width: 900px) {
+    .whatsapp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .whatsapp-box {
+        padding: 1.5rem;
+    }
+}
+
+/* ============================================================
+   ABOUT PAGE STYLES
+============================================================ */
+
+.about-hero {
+    padding: 100px 0 80px;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin: auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   ABOUT CONTENT GRID
+========================================================= */
+.about-content {
+    padding: 80px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+}
+
+.about-text,
+.about-values {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* VALUES LIST */
+.about-values ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-values li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+.about-values li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+.about-faq {
+    padding: 90px 0;
+    background: var(--bg-muted);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: auto;
+}
+
+.accordion-item {
+    background: var(--bg-card);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+/* Accordion Header */
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.accordion-header:focus-visible {
+    outline: 3px solid var(--primary);
+}
+
+/* Accordion Content (Animated) */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 22px;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+    padding: 15px 22px 25px;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+.about-cta {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 90px 0;
+    text-align: center;
+}
+
+.about-cta p {
+    max-width: 500px;
+    margin: 15px auto 30px;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* ============================================================
+   SERVICES PAGE STYLES
+============================================================ */
+
+.services-hero {
+    padding: 5.5rem 1.5rem 4.5rem;
+    background: linear-gradient(180deg, #f4f7fb 0%, #ffffff 100%);
+    border-bottom: 1px solid rgba(10, 45, 91, 0.06);
+    text-align: center;
+}
+
+.services-hero .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Main heading */
+.services-hero h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #0a2d5b;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+/* Intro text */
+.section-intro {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/* ============================================================
+   SERVICES SECTION 
+============================================================ */
+
+/* Section wrapper */
+.services-list {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, #f9fafc 0%, #ffffff 100%);
+}
+
+/* Grid container */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Service cards */
+.service-card {
+    background: #ffffff;
+    padding: 2.25rem 2rem;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(10, 45, 91, 0.08);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top accent */
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #0a2d5b, #1e88e5);
+}
+
+/* Hover effect */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 45px rgba(10, 45, 91, 0.15);
+}
+
+/* Title */
+.service-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0a2d5b;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Description */
+.service-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.cta-section {
+    margin-top: 4.5rem;
+    text-align: center;
+}
+
+/* CTA Button Styling */
+.cta-section .btn {
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 999px; /* pill shape */
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Accessibility: remove outline only when safe */
+.btn-primary:focus-visible {
+    outline: 3px solid rgba(30, 136, 229, 0.5);
+    outline-offset: 4px;
+}
+
+
+/* ===============================
+   RESPONSIVE BEHAVIOR
+=============================== */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .services-list {
+        padding: 3.5rem 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .services-hero {
+        padding: 4.5rem 1.25rem 3.5rem;
+    }
+
+    .services-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-intro {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .services-hero {
+        padding: 4rem 1rem 3rem;
+    }
+
+    .services-hero h1 {
+        font-size: 1.9rem;
+    }
+}
+
+/* ============================================================
+   SAMPLES PAGE STYLES
+============================================================ */
+
+.samples-hero {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* SECTION */
+.samples-list {
+    background: #f5f7fb;
+    padding: 60px 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CONTAINER */
+.samples-list .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CONTROLS */
+.samples-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.samples-controls input,
+.samples-controls select {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #dcdfe6;
+    font-size: 15px;
+    flex: 1;
+    min-width: 220px;
+}
+
+/* GRID */
+.samples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* CARD */
+.sample-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sample-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sample-card.is-hidden {
+    display: none;
+}
+
+/* TITLE */
+.sample-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+/* META */
+.sample-card p {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.sample-card strong {
+    color: #0f172a;
+}
+
+/* BUTTONS */
+.sample-card .btn {
+    margin-top: 15px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+/* BUTTON STACK */
+.sample-card a + a {
+    margin-top: 10px;
+}
+
+/* NO RESULTS */
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #64748b;
+    grid-column: 1 / -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .sample-card {
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .samples-controls {
+        flex-direction: column;
+    }
+}
+
+/* SEARCH INPUT */
+#searchInput {
+    flex: 0 1 360px; 
+    min-width: 260px;
+    max-width: 360px;
+    width: 100%;
+    padding: 14px 16px 14px 44px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.25s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 14px center;
+}
+
+/* HOVER */
+#searchInput:hover {
+    border-color: #94a3b8;
+}
+
+/* FOCUS */
+#searchInput:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* PLACEHOLDER */
+#searchInput::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* DISABLED STATE (optional) */
+#searchInput:disabled {
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    #searchInput {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* FORCE SEARCH WIDTH FIX */
+.samples-list .samples-controls #searchInput {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+}
+
+/* CENTER CONTROLS BLOCK */
+.samples-list .samples-controls {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    justify-content: center;
+}
+
